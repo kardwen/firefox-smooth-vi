@@ -1,0 +1,7 @@
+#!/bin/sh
+
+mkdir -p ./dist
+
+zip -r ./dist/smooth_vi.zip smoothVi.js smooth_vi.svg manifest.json README.md LICENSE
+
+unzip -l ./dist/smooth_vi.zip
