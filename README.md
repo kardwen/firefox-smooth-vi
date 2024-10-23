@@ -2,9 +2,9 @@
 
 # smooth vi
 
-This extension for Firefox provides a vi mode that is stupidly simple and requires no configuration to minimize conflicting keybindings. The vi mode is activated by pressing `(Esc)`, similar to the way you can navigate in vi in normal mode. In vi mode, you can scroll using the traditional vi keybindings. The movement is smooth and accelerates as you hold down a key. This is similar to the default behaviour of the arrow keys in Firefox.
+This extension for Firefox provides a vi mode for viewing web pages that is stupidly simple and requires no configuration to minimize conflicting keybindings. The vi mode is activated by pressing `(Esc)`, similar to the way you can navigate in vi in normal mode. In vi mode, you can scroll using the traditional vi keybindings. The movement is smooth and accelerates as you hold down a key. This is similar to the default behaviour of the arrow keys in Firefox.
 
-The uniqueness of this approach is that any other unbound key, mouse click or touch input will deactivate vi mode, so you're unlikely to run into the problem of having to create individual configurations for many web pages (in fact, you can't). Although limited, it does provide a nice way of reading web pages with a comfortable keyboard layout, without having to use the arrow keys, touchpad or mouse very often. 
+The uniqueness of this approach is that any other unbound key, mouse click or touch input will deactivate vi mode, so you're unlikely to run into the problem of having to create individual configurations for many web pages (in fact, you can't). It does provide a nice way of reading web pages with a comfortable keyboard layout, without having to use the arrow keys, touchpad or mouse very often. 
 
 *Add the extension to Firefox on [addons.mozilla.org](https://addons.mozilla.org/en-US/firefox/addon/smooth-vi/)*
 
@@ -35,6 +35,8 @@ Note that add-ons are disabled on sites for managing Firefox settings and add-on
 ## Limitations
 
 It will conflict with dedicated vi or Vim (vi improved) emulations for editing text on web pages, because with those implementations `(Esc)` is probably used to enter command mode to move the cursor inside a text field. On the contrary, this add-on uses `(Esc)` to enter a mode for moving the viewport of the web page.
+
+On pages that bind an action to `(Esc)`, the functionality of the page is usually not restricted, because the vi mode will only be briefly active and can be immediately disabled by following `(i)`.
 
 I may add a global option in the future to allow for changing how vi mode is activated, e.g. by pressing `(Esc)` twice instead of once.
 
