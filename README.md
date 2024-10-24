@@ -1,4 +1,4 @@
-<img src="smooth_vi.svg" height="96">
+<img src="smooth_vi_128.png" height="128">
 
 # smooth vi
 
