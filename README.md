@@ -11,14 +11,14 @@ The uniqueness of this approach is that any other unbound key, mouse click or to
 ## Keybindings
 
 ```text
-(Esc): Activate vi mode
-(h): Move left
-(j): Move down
-(k): Move up
-(l): Move right
-(g): Move to the top of the page
-(G): Move to the bottom of the page
-(i): Deactivate vi mode
+(Esc) Activate vi mode
+(h)   Move left
+(j)   Move down
+(k)   Move up
+(l)   Move right
+(g)   Move to the top of the page
+(G)   Move to the bottom of the page
+(i)   Deactivate vi mode
 
 Any other key, with the exception of (Shift),
 deactivates vi mode again.
