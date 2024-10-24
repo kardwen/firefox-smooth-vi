@@ -1,55 +1,27 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
   <defs>
-    <text
-      id="vi"
-      x="24"
-      y="24"
-      dx="1"
-      dy="10"
-      font-family="Noto Sans Mono, monospace"
-      font-size="30"
-      fill="#ff4000"
-      text-anchor="middle"
-    >vi</text>
+    <text id="vi" x="24" y="24" dx="1" dy="10"
+      font-family="Noto Sans Mono, monospace" font-size="30"
+      fill="#ff4000" text-anchor="middle">vi</text>
     <filter id="crt-glow-inner" x="-100%" y="-100%" width="300%" height="300%">
-      <feGaussianBlur in="SourceGraphic" stdDeviation="0.5" />
-      <feColorMatrix type="matrix"
-        values="1.2 0 0 0 1   0 0.8 0 0 0.4   0 0 0 0 0  0 0 0 1 0" />
+      <feGaussianBlur in="SourceGraphic" stdDeviation="0.5"/>
+      <feColorMatrix type="matrix" values="1.2 0 0 0 1   0 0.8 0 0 0.4   0 0 0 0 0  0 0 0 1 0"/>
     </filter>
     <filter id="crt-glow-medium" x="-100%" y="-100%" width="300%" height="300%">
-      <feGaussianBlur in="SourceGraphic" stdDeviation="1.5" />
-      <feColorMatrix type="matrix"
-        values="1.1 0 0 0 1   0 0.7 0 0 0.5   0 0 0 0 0  0 0 0 0.7 0" />
+      <feGaussianBlur in="SourceGraphic" stdDeviation="1.5"/>
+      <feColorMatrix type="matrix" values="1.1 0 0 0 1   0 0.7 0 0 0.5   0 0 0 0 0  0 0 0 0.7 0"/>
     </filter>
     <filter id="crt-glow-outer" x="-100%" y="-100%" width="300%" height="300%">
-      <feGaussianBlur in="SourceGraphic" stdDeviation="2" />
-      <feColorMatrix type="matrix"
-        values="1 0 0 0 1   0 0.6 0 0 0.3   0 0 0 0 0  0 0 0 0.5 0" />
+      <feGaussianBlur in="SourceGraphic" stdDeviation="2"/>
+      <feColorMatrix type="matrix" values="1 0 0 0 1   0 0.6 0 0 0.3   0 0 0 0 0  0 0 0 0.5 0"/>
     </filter>
     <pattern id="scan-lines" x="0" y="3" width="48" height="8" patternUnits="userSpaceOnUse">
-      <line x1="0" y1="3" x2="48" y2="4" stroke="#000" stroke-width="4" opacity="0.20" />
+      <line x1="0" y1="3" x2="48" y2="4" stroke="#000" stroke-width="4" opacity="0.20"/>
     </pattern>
   </defs>
-  <rect
-    id="background"
-    x="1"
-    y="1"
-    width="46"
-    height="46"
-    rx="8"
-    ry="8"
-    fill="#151515"
-  />
-  <use href="#vi" x="0" y="0" filter="url(#crt-glow-inner)" />
-  <use href="#vi" x="0" y="0" filter="url(#crt-glow-medium)" />
-  <use href="#vi" x="0" y="0" filter="url(#crt-glow-outer)" />
-  <rect
-    x="1"
-    y="1"
-    width="46"
-    height="46"
-    rx="8"
-    ry="8"
-    fill="url(#scan-lines)"
-  />
+  <rect id="background" x="1" y="1" width="46" height="46" rx="8" ry="8" fill="#151515"/>
+  <use href="#vi" x="0" y="0" filter="url(#crt-glow-inner)"/>
+  <use href="#vi" x="0" y="0" filter="url(#crt-glow-medium)"/>
+  <use href="#vi" x="0" y="0" filter="url(#crt-glow-outer)"/>
+  <rect x="1" y="1" width="46" height="46" rx="8" ry="8" fill="url(#scan-lines)"/>
 </svg>

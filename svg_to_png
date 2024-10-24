@@ -1,0 +1,4 @@
+#!/bin/sh
+for size in 48 96 128; do
+    inkscape -w $size -h $size smooth_vi.svg -o "smooth_vi_${size}.png"
+done

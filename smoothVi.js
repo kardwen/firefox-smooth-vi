@@ -51,7 +51,7 @@ const smoothVi = {
     // Sets `step` to `maxStep` but resets it when the timer expires.
     // `steps` remains unchanged if a key is pressed before the timer
     // has expired because the timer will get cancelled.
-    // For simplicy, keep only track of one timer for all directions.
+    // For simplicity, keep only track of one timer for all directions.
     clearTimeout(this.timer);
     this.step = this.maxStep;
     this.timer = setTimeout(
