@@ -38,9 +38,9 @@ It will conflict with dedicated vi or Vim (vi improved) emulations for editing t
 
 On pages that bind an action to `(Esc)`, the functionality of the page is usually not restricted, because the vi mode will only be briefly active and can be immediately disabled by following `(i)`.
 
-I may add a global option in the future to allow for changing how vi mode is activated, e.g. by pressing `(Esc)` twice instead of once.
-
 ## Development
+
+I may add a global option in the future to change how vi mode is activated, e.g. by pressing `(Esc)` twice instead of once. Another idea would be to add an option to use the logo of the add-on as an indication that vi mode is active.
 
 If you want to install this add-on locally, you must first bundle it by running the `bundle` script (for Unix) in the repository. The program `zip` is required to run it: 
 
