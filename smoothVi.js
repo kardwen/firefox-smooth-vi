@@ -4,7 +4,7 @@ const smoothVi = {
   maxStep: 500, // Movement in pixels for fast steps
   interval: 100, // Interval in milliseconds for subsequent steps
   step: 100,
-  timer: null,
+  sequenceTimer: null,
   keymap: new Map([
     ['Escape', () => smoothVi.enable()],
     ['Shift', () => {}],
@@ -29,35 +29,30 @@ const smoothVi = {
     document.addEventListener( 'touchstart', () => this.disable(), true);
   },
   onKeyDown(event) {
-    const fn = this.keymap.get(event.key);
-    if (fn) {
-      // Prevent triggering actions bound by
-      // the current web page for keys listed when in vi mode
-      if (this.active && this.capturingKeys.includes(event.key)) {
-        event.preventDefault();
-        event.stopPropagation();
-      }
-      // Escape needs to be handled even when vi mode is not active
-      if (this.active || event.key === 'Escape') {
+    if (this.active || event.key === 'Escape') {
+      const fn = this.keymap.get(event.key);
+      if (fn) {
+        // Prevent triggering actions bound by the current web page
+        if (this.capturingKeys.includes(event.key)) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
         fn();
+        // Acclerates scrolling on subsequent key presses
+        // For simplicity, keep only track of one timer.
+        if (['h', 'j', 'k', 'l'].includes(event.key)) {
+          this.step = this.maxStep;
+          // Restarts timer for resetting `step` value
+          clearTimeout(this.sequenceTimer);
+          this.sequenceTimer = setTimeout(
+            () => { smoothVi.setStepToMin(); },
+            this.interval,
+          );
+        }
+      } else {
+        this.disable();
       }
-    } else {
-      // Disable vi mode for every key that is not mapped
-      this.disable();
-      return;
     }
-
-    // Acclerates scrolling on subsequent key presses
-    // Sets `step` to `maxStep` but resets it when the timer expires.
-    // `steps` remains unchanged if a key is pressed before the timer
-    // has expired because the timer will get cancelled.
-    // For simplicity, keep only track of one timer for all directions.
-    clearTimeout(this.timer);
-    this.step = this.maxStep;
-    this.timer = setTimeout(
-      () => { smoothVi.setStepToMin(); },
-      this.interval,
-    );
   },
   enable() {
     this.active = true;
