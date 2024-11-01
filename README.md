@@ -6,6 +6,11 @@ This extension for Firefox provides a vi mode for viewing web pages that is stup
 
 The uniqueness of this approach is that any other unbound key, mouse click or touch input will deactivate vi mode, so you're unlikely to run into the problem of having to create individual configurations for many web pages (in fact, you can't). It does provide a nice way of reading web pages with a comfortable keyboard layout, without having to use the arrow keys, touchpad or mouse very often. 
 
+Additional features:
+
+* vi mode indicator for toolbar
+* Scrolling speed and acceleration settings
+
 *Add the extension to Firefox on [addons.mozilla.org](https://addons.mozilla.org/firefox/addon/smooth-vi/)*
 
 ## Keybindings
@@ -39,8 +44,6 @@ It will conflict with dedicated vi or Vim (vi improved) emulations for editing t
 On pages that bind an action to `(Esc)`, the functionality of the page is usually not restricted, because the vi mode will only be briefly active and can be immediately disabled by following `(i)`.
 
 ## Development
-
-I may add a global option in the future to change how vi mode is activated, e.g. by pressing `(Esc)` twice instead of once. Another idea would be to add an option to use the logo of the add-on as an indication that vi mode is active.
 
 If you want to install this add-on locally, you must first bundle it by running the `bundle` script (for Unix) in the repository. The program `zip` is required to run it: 
 

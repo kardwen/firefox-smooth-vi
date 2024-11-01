@@ -1,10 +1,10 @@
 const smoothVi = {
-  active: false, // Enable vi mode on page load
-  minStep: 100, // Movement in pixels per step
-  maxStep: 500, // Movement in pixels for fast steps
-  interval: 100, // Interval in milliseconds for subsequent steps
+  active: false,
   step: 100,
   sequenceTimer: null,
+  interval: 100, // Interval in milliseconds for subsequent steps
+  minStep: 100, // Movement in pixels per step
+  maxStep: 550, // Movement in pixels for subsequent steps
   keymap: new Map([
     ['Escape', () => smoothVi.enable()],
     ['Shift', () => {}],
@@ -17,7 +17,34 @@ const smoothVi = {
     ['i', () => smoothVi.disable()],
   ]),
   capturingKeys: ['h', 'j', 'k', 'l', 'g', 'G', 'i'],
-  init() {
+  async init() {
+    const result = await browser.storage.local.get('smoothViSettings');
+    if (result && result.settings) {
+      const settings = result.smoothViSettings;
+      if (settings.minStep && settings.maxStep) {
+        this.minStep = settings.minStep;
+        this.maxStep = settings.maxStep;
+      }
+    } else {
+      await browser.storage.local.set({
+        smoothViSettings: {
+          minStep: this.minStep,
+          maxStep: this.maxStep
+        }
+      });
+    }
+
+    browser.runtime.onMessage.addListener((message) => {
+      if (message.type === 'smoothViSettingsUpdate') {
+        this.minStep = message.settings.minStep;
+        this.maxStep = message.settings.maxStep;
+        this.setStepToMin();
+      } else if (message.type === 'smoothViStateUpdate') {
+        this.active = message.active;
+      }
+    });
+    browser.runtime.sendMessage({ type: 'smoothViRequestStateUpdate' });
+
     document.addEventListener(
       'keydown',
       (event) => this.onKeyDown(event),
@@ -55,10 +82,22 @@ const smoothVi = {
     }
   },
   enable() {
-    this.active = true;
+    if (!this.active) {
+      this.active = true;
+      browser.runtime.sendMessage({
+        type: 'smoothViStateUpdate',
+        active: true
+      });
+    }
   },
   disable() {
-    this.active = false;
+    if (this.active) {
+      this.active = false;
+      browser.runtime.sendMessage({
+        type: 'smoothViStateUpdate',
+        active: false
+      });
+    }
   },
   setStepToMin() {
     this.step = this.minStep;

@@ -4,9 +4,14 @@ mkdir -p ./dist
 rm -f ./dist/smooth_vi.zip
 
 zip -r ./dist/smooth_vi.zip \
+  background.js \
+  options.html \
+  options.js \
   smoothVi.js \
   smooth_vi_48.png \
+  smooth_vi_disabled_48.png \
   smooth_vi_96.png \
+  smooth_vi_disabled_96.png \
   manifest.json \
   README.md \
   LICENSE

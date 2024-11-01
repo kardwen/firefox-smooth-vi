@@ -1,21 +1,37 @@
 {
-    "manifest_version": 3,
-    "name": "smooth vi",
-    "version": "1.3",
-    "browser_specific_settings": {
-      "gecko": {
-        "id": "{aea01107-f542-40da-9c9d-9535f0b17a2c}"
-      }
-    },
-    "description": "Simple and smooth vi mode for viewing web pages",
-    "icons": {
-      "48": "smooth_vi_48.png",
-      "96": "smooth_vi_96.png"
-    },
-    "content_scripts": [
-        {
-            "matches": ["*://*/*"],
-            "js": ["smoothVi.js"]
-        }
-    ]
+  "manifest_version": 3,
+  "name": "smooth vi",
+  "version": "1.4",
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "{aea01107-f542-40da-9c9d-9535f0b17a2c}"
+    }
+  },
+  "description": "Simple and smooth vi mode for viewing web pages",
+  "icons": {
+    "48": "smooth_vi_48.png",
+    "96": "smooth_vi_96.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*/*"],
+      "js": ["smoothVi.js"]
+    }
+  ],
+  "permissions": [
+    "storage"
+  ],
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "action": {
+    "default_icon": {
+      "48": "smooth_vi_disabled_48.png",
+      "96": "smooth_vi_disabled_96.png"
+    }
+  },
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": false
+  }
 }
