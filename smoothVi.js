@@ -128,4 +128,4 @@ const smoothVi = {
   },
 };
 
-window.onload = smoothVi.init();
+smoothVi.init();
