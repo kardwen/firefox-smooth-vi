@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "smooth vi",
-  "version": "1.4",
+  "version": "1.5",
   "browser_specific_settings": {
     "gecko": {
       "id": "{aea01107-f542-40da-9c9d-9535f0b17a2c}"
